@@ -1,0 +1,35 @@
+<div class="container">
+<% @quotes.each do |quote| %>
+  <%= render quote %>
+  <p>
+    <%= link_to "Show this quote", quote %>
+  </p>
+<% end %>
+
+  <div class="center">
+    <i class="bi bi-chat-square-quote-fill" id="quotes"></i>
+  </div>
+
+  <p style="color: green"><%= notice %></p>
+  
+
+  <div class="container pt-5">
+    <div class="row align-items-start">
+      <h1 class="maintext col">Quotes</h1>
+      
+      <%= link_to new_quote_path, class: "btn btn-primary col" do %>
+        <i class="bi bi-plus">New Quote</i>
+      <% end %>
+      
+        <hr>
+    </div>
+  <div>
+
+
+  <footer>
+    <div class="footer">
+      <p>@ All rights reserved - Teaford - 2024</p>
+    </div>  
+  </footer>
+
+</div>

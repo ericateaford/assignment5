@@ -21,18 +21,13 @@
     <%= form.text_field :said_by, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :votes, style: "display: block" %>
-    <%= form.number_field :votes %>
-  </div>
 
+<br>
   <div class="btn btn-primary">
     <%= form.submit %>
   </div>
 
-<div class="btn btn-secondary">
-  <%= link_to "Cancel", quotes_path %>
-</div>
+  <%= link_to "Cancel", quotes_path, class: "btn btn-secondary" %> 
 
 
 <% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clicks
+  put 'quotes/:id/upvote', to: 'quotes#upvote', as: 'upvote_quote'
   resources :quotes do
     member do
       put 'vote'

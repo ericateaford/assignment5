@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Clicks</h1>
+
+<div id="clicks">
+  <% @clicks.each do |click| %>
+    <%= render click %>
+    <p>
+      <%= link_to "Increase count", clicks_path, remote: true, method: :create %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New click", new_click_path %>

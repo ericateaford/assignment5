@@ -1,0 +1,17 @@
+<%= form_with(model: click) do |form| %>
+  <% if click.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(click.errors.count, "error") %> prohibited this click from being saved:</h2>
+
+      <ul>
+        <% click.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

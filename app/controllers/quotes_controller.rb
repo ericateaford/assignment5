@@ -1,11 +1,22 @@
 class QuotesController < ApplicationController
-  before_action :set_quote, only: %i[ show edit update destroy ]
+  before_action :set_quote, only: %i[ show edit update destroy upvote ]
 
   # GET /quotes
   def index
     @quotes = Quote.all
   end
 
+  def home 
+    @quote = quote.first if quote.any?
+  end
+
+  def upvote 
+    @quote =  quote.find(params[:id])
+    @quote.increment!(:upvote)
+
+    redirect_to root_path
+  end
+  
   # GET /quotes/1
   def show
   end

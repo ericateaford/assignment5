@@ -25,11 +25,12 @@
     <%= render quote %>
     <tr>
     <td> <%= link_to "Edit", edit_quote_path(quote), class: "btn btn-primary bi bi-plus-circle"%> </td>
-    <td> <%= link_to "Vote", quote, class: "btn btn-secondary bi bi-hand-thumbs-up"%>  </td>
+    <td> <%= link_to "Vote", upvote_quote_path(quote), method: :put, class: "btn btn-secondary bi bi-hand-thumbs-up"%>  </td>
     <td><%= link_to "Delete", quote, method: :delete, class: "btn btn-danger bi bi-trash" %> </td>
     </tr>
   <% end %>
 
+  This has <%= pluralize(@quote.upvote, "Votes") %> 
 <br><br>
 
 

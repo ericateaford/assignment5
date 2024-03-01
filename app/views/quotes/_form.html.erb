@@ -21,6 +21,16 @@
     <%= form.text_field :said_by, class: "form-control" %>
   </div>
 
+  <div>
+  <%= form.label :year, style: "display: block" %>
+  <%= form.text_field :year, class: "form-control" %>
+</div>
+
+<div>
+<%= form.label :notes, class: "form-label" %> 
+<%= form.rich_text_area :notes %>
+</div>
+
 
 <br>
   <div class="btn btn-primary">

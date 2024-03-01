@@ -4,6 +4,8 @@ class CreateQuotes < ActiveRecord::Migration[7.1]
       t.string :saying
       t.string :said_by
       t.integer :votes
+      t.integer :year
+      t.string :note
 
       t.timestamps
     end

@@ -44,13 +44,13 @@ class QuotesController < ApplicationController
       redirect_to root_path, notice: "Quote was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
-    end
+    end 
   end
 
   # DELETE /quotes/1
   def destroy
     @quote.destroy!
-    redirect_to quotes_url, notice: "Quote was successfully destroyed.", status: :see_other
+    redirect_to root_path, notice: "Quote was successfully destroyed.", status: :see_other
   end
 
   private

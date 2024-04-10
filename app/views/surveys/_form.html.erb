@@ -1,0 +1,54 @@
+<%= form_with(model: survey) do |form| %>
+  <% if survey.errors.any? %>
+    <div style="color: blue">
+      <h2><%= pluralize(survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+        <% survey.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <div class="p-4" style="background-color: white; border: solid; border-radius: 5px;">
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+<div>
+<%= form.label :description, class: "form-label" %> 
+<%= form.rich_text_area :description %>
+</div>
+
+
+
+<div>
+    <%= form.label :choose, style: "display: block" %>
+    <%= form.select :choose, [["Multiple Choice", 1], ["Essay", 2], ["Multiple", 3], ["True/False", 4]], {include_blank: "Select a day"} %>
+</div>
+
+
+<%= radio_button_tag 'favorite_color', 'maroon', true%> True
+<%= radio_button_tag 'favorite_color', 'maroon', false%> False
+
+
+#multiple choice
+<%= form.check_box :paid %>
+
+#fill in blank- long response
+
+#search field tag to search 
+<%= search_field_tag 'search', 'Search' %>
+
+<div class="btn btn-dark mt-3">
+<%= form.submit %>
+</div>
+
+<%= link_to "Cancel", surveys_path, class: "btn btn-dark mt-3" %> 
+
+</div>
+
+
+<% end %>

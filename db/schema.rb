@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_29_233919) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_09_163154) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,14 +49,43 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_233919) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "choices", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "input"
+    t.string "title"
+    t.string "radio"
+    t.string "multiple"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
   create_table "clicks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "quotes", force: :cascade do |t|
-    t.string "saying"
-    t.string "said_by"
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id", null: false
+    t.string "rails"
+    t.string "g"
+    t.string "scaffold"
+    t.string "choices"
+    t.integer "question_id", null: false
+    t.string "input"
+    t.string "title"
+    t.string "radio"
+    t.string "multiple"
+    t.string "search"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_questions_on_question_id"
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
     t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,4 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_29_233919) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "choices", "questions"
+  add_foreign_key "questions", "questions"
+  add_foreign_key "questions", "surveys"
 end

@@ -1,0 +1,32 @@
+<div id="<%= dom_id question %>">
+
+<p>
+    <strong>Title:</strong>
+    <%= question.title %>
+  </p>
+
+  <p>
+    <strong>Input:</strong>
+    <%= question.input %>
+  </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Choice</th>
+        <th>choice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% question.choice.each do |c| %>
+        <tr>
+        <td><%= c.name %></td>
+        <td><%= c.age %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+</div>

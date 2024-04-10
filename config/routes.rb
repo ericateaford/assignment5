@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :questions
+  resources :choices
   resources :clicks
-  put 'quotes/:id/upvote', to: 'quotes#upvote', as: 'upvote_quote'
-  resources :quotes do
+  put 'surveys/:id/upvote', to: 'surveys#upvote', as: 'survey_quote'
+  resources :surveys do
     member do
       put 'vote'
      end
@@ -11,7 +13,9 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-
+  
+  get "design/:id", to: "surveys#design"
+  get "take", to: "surveys#take"
   # Defines the root path route ("/")
-  root "quotes#index"
+  root "surveys#index"
 end

@@ -1,11 +1,9 @@
-class CreateQuotes < ActiveRecord::Migration[7.1]
+class CreateSurveys < ActiveRecord::Migration[7.1]
   def change
-    create_table :quotes do |t|
-      t.string :saying
-      t.string :said_by
-      t.integer :votes
-      t.integer :year
-      t.string :note
+    create_table :surveys do |t|
+      t.string :title
+      t.string :description
+      
 
       t.timestamps
     end

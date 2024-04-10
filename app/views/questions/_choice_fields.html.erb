@@ -1,0 +1,20 @@
+<fieldset class="border m-3 p-3">
+    <div>
+      <%= f.label :name, style: "display: block" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :age, style: "display: block" %>
+      <%= f.number_field :age %>
+    </div>
+
+    <div>
+      <% if f.object.id == -1 %>
+        <%= link_to "Cancel", "#", class: "btn btn-secondary cancel_choice_fields" %>
+      <% else %>
+        <%= f.hidden_field :_destroy %>
+        <%= link_to "Remove", "#", class: "btn btn-danger remove_choice_fields" %>
+      <% end %>
+    </div>
+</fieldset>

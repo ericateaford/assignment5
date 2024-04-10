@@ -1,0 +1,40 @@
+
+
+<div  class="p-5 background">
+  <div class="border-show">
+  <p style="color: green"><%= notice %></p>
+  
+
+  <div class="container pt-5">
+    
+      <h1 class="maintext"> The SurveyPro &trade; </h1>
+      
+    
+<div class="mainbutton">
+      <%= link_to new_survey_path, class: "btn btn-dark col m-3" do %>
+        <i class="bi bi-plus">New Survey</i>
+      <% end %>
+</div>
+        <hr>
+  
+  </div>
+
+  <div class="container">
+  <% @surveys.each do |survey| %>
+    <%= render survey %>
+   
+  <% end %>
+
+<br><br>
+
+
+
+  <footer>
+    <div class="footer">
+      <p>@ All rights reserved - Erica Teaford - 2024</p>
+    </div>  
+  </footer>
+
+</div>
+</div>
+</div>
